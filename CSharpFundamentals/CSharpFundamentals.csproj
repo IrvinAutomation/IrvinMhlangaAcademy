@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Arrays.cs" />
+    <Compile Remove="Program.cs" />
+    <Compile Remove="Program2.cs" />
+    <Compile Remove="Program3.cs" />
+    <Compile Remove="Program4.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Arrays.cs" />
+    <None Include="Program.cs" />
+    <None Include="Program2.cs" />
+    <None Include="Program3.cs" />
+    <None Include="Program4.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Selenium.WebDriver" Version="4.30.0" />
+  </ItemGroup>
+
+</Project>
