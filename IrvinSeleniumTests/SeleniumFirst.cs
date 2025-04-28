@@ -32,7 +32,6 @@ namespace IrvinSeleniumTests
         [Test]
         public void TestOne()
         {
-            IWebDriver driver;
             TestContext.Progress.WriteLine("LOGIN PAGE TITLE IS :" +driver.Title);
             TestContext.Progress.WriteLine("THE LOGIN PAGE URL IS :" +driver.Url);
            TestContext.Progress.WriteLine("THE PAGE SOURCE IS :" +driver.PageSource);
