@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AdditionCalculator.cs" />
     <Compile Remove="Arrays.cs" />
     <Compile Remove="Program.cs" />
     <Compile Remove="Program2.cs" />
@@ -16,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="AdditionCalculator.cs" />
     <None Include="Arrays.cs" />
     <None Include="Program.cs" />
     <None Include="Program2.cs" />

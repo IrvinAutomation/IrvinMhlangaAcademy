@@ -1,6 +1,7 @@
 ﻿using FluentAssertions.Execution;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using NUnit.Framework;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,10 @@ namespace IrvinSeleniumTests
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
             //new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
             //new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
-            driver = new ChromeDriver();
             //driver = new FirefoxDriver();
             //driver = new EdgeDriver();
-            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            driver = new ChromeDriver();
             driver.Url = "https://rahulshettyacademy.com/loginpagePractise/";
             driver.Manage().Window.Maximize();
         }
@@ -42,7 +43,7 @@ namespace IrvinSeleniumTests
             driver.FindElement(By.Id("signInBtn")).Click();
 
             //get the error text message
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(8));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.TextToBePresentInElementValue(driver.FindElement(By.Id("signInBtn")), "Sign In"));
 
            String alert = driver.FindElement(By.XPath("//div[@class='alert alert-danger col-md-12']")).Text;
@@ -53,6 +54,7 @@ namespace IrvinSeleniumTests
 
            
             Assert.That(hrefLink, Is.EqualTo("https://rahulshettyacademy.com/documents-request"));
+            
             
     
             

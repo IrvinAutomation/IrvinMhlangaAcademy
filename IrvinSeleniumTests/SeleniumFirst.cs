@@ -19,22 +19,28 @@ namespace IrvinSeleniumTests
         [SetUp]
         public void startBrowser()
         {
-            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+
             //new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
             //new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
-            IWebDriver driver = new ChromeDriver();
             //driver = new FirefoxDriver();
-            //driver = new EdgeDriver();
+            //IWebDriver driver = new EdgeDriver();
+            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+            driver = new ChromeDriver();
             driver.Url = "https://rahulshettyacademy.com/loginpagePractise/";
             driver.Manage().Window.Maximize();
         }
 
         [Test]
-        public void TestOne()
+        public void FirstTest()
+        { 
+            TestContext.Progress.WriteLine("The page Title is : "+driver.PageSource);
+           TestContext.Progress.WriteLine("The URL of the page is :" +driver.Url);
+        }
+
+        [TearDown]
+        public void CloseBrowser()
         {
-            TestContext.Progress.WriteLine("LOGIN PAGE TITLE IS :" +driver.Title);
-            TestContext.Progress.WriteLine("THE LOGIN PAGE URL IS :" +driver.Url);
-           TestContext.Progress.WriteLine("THE PAGE SOURCE IS :" +driver.PageSource);
+            //driver.Close();
         }
     }
 }

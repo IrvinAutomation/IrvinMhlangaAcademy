@@ -7,7 +7,7 @@ namespace CSharpFundamentals
         String name;
         String LastName;
 
-        //method default constructor
+        //constructor = method that is called by default when you create an object 
         //constructor takes the name of your class
         //We use Constructor to initialize variables
         // Contructors and and objects should be in sync

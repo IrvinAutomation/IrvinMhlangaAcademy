@@ -20,7 +20,8 @@ namespace CSharpFundamentals
             age[1] = 30;
             age[2] = 50;
             age[3] = 60;
-            Console.WriteLine(age[0]);
+
+            Console.WriteLine(age[3]);
 
             String[] name = { "Irvin", "Sibusiso", "Mhlanga", "Samu", "Ona", "QA Engineer", "Khabako" };
 
@@ -32,7 +33,7 @@ namespace CSharpFundamentals
                 Console.WriteLine(name[i]);
 
                 
-                if (name[i] == "Irvin")
+                if (name[i] == "Sibusiso")
                 {
                     Console.WriteLine("Match Found");
                     break;
@@ -52,6 +53,8 @@ namespace CSharpFundamentals
             a.Add("Mhlanga");
             a.Add("Baby Steps");
             a.Add("Khabako");
+            a.Add("Zama");
+            a.Add("Anooo");
 
             foreach (String item in a)
             {
@@ -59,9 +62,9 @@ namespace CSharpFundamentals
 
             }
 
-            Console.WriteLine(a.Contains("Sibusiso"));
+            Console.WriteLine(a.Contains("Khabako"));
 
-            Console.WriteLine("After Sorting");
+            Console.WriteLine("AFTER SORTING");
             a.Sort();
             foreach (String item in a)
             {
