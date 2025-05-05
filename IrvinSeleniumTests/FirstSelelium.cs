@@ -12,7 +12,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace IrvinSeleniumTests
 {
-    public class SeleniumFirst
+    public class FirstSelelium
     {
         IWebDriver driver;
 
@@ -31,7 +31,7 @@ namespace IrvinSeleniumTests
         }
 
         [Test]
-        public void FirstTest()
+        public void pageTitleTest()
         { 
             TestContext.Progress.WriteLine("The page Title is : "+driver.PageSource);
            TestContext.Progress.WriteLine("The URL of the page is :" +driver.Url);

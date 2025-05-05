@@ -9,14 +9,14 @@ namespace IrvinSeleniumTests
         }
 
         [Test]
-        public void Test1()
+        public void TestFlowOne()
         {
             TestContext.Progress.WriteLine("This is test1");
             Assert.Pass();
         }
 
         [Test]
-        public void Test2()
+        public void TestFlowTwo()
         {
             TestContext.Progress.WriteLine("This is test2");
             Assert.Pass();

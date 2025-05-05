@@ -10,7 +10,7 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace IrvinSeleniumTests
 {
-    public class StaticDropDown
+    public class RadioButton
     {
         IWebDriver driver;
         [SetUp]
@@ -28,12 +28,21 @@ namespace IrvinSeleniumTests
         }
 
         [Test]
-        public void StaticDropDownTests()
+        public void RadioButtonTests()
         {
-            driver.FindElement(By.XPath("//input[@value='user']")).Click();
+            IList<IWebElement> radioButton = driver.FindElements(By.CssSelector("input[type='radio']"));
+            foreach (IWebElement radioButtonElement in radioButton)
+            {
+                if (radioButtonElement.GetAttribute("value").Equals("user"))
+                {
+                    radioButtonElement.Click();
+                }
+                
+            }
             WebDriverWait wait = new WebDriverWait(driver,TimeSpan.FromSeconds(5));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(driver.FindElement(By.Id("okayBtn"))));
             driver.FindElement(By.Id("okayBtn")).Click();
+
            Boolean result = driver.FindElement(By.XPath("//input[@value='user']")).Selected;
            IWebElement dropDown = driver.FindElement(By.XPath("//select[@class='form-control']"));
             SelectElement s = new SelectElement(dropDown);
