@@ -35,7 +35,7 @@ namespace IrvinSeleniumTests
         {
             String name = "Irvin";
 
-            driver.FindElement(By.Id("name")).SendKeys(name);
+            driver.FindElement(By.Name("enter-name")).SendKeys(name);
             driver.FindElement(By.CssSelector("input[value='Confirm']")).Click();
             String AlertText = driver.SwitchTo().Alert().Text;
             driver.SwitchTo().Alert().Accept();
@@ -47,19 +47,19 @@ namespace IrvinSeleniumTests
         public void AutoSuggestion()
         {
             IWebElement inputValue = driver.FindElement(By.Id("autocomplete"));
-            inputValue.SendKeys("Saint");
+            inputValue.SendKeys("LO");
             Thread.Sleep(4000);
-            IList<IWebElement> Options = driver.FindElements(By.CssSelector("ul[id='ui-id-1'] li"));
+            IList<IWebElement> Options = driver.FindElements(By.CssSelector("li[class='ui-menu-item']"));
 
             foreach (IWebElement option in Options)
             {
-                if (option.Text.Equals("Saint Vincent and the Grenadines"))
+                if (option.Text.Equals("Solomon Islands"))
                 {
                     option.Click();
+                    
                 }
-
-                TestContext.Progress.WriteLine(inputValue.GetAttribute("value"));
             }
+            TestContext.Progress.WriteLine(inputValue.GetAttribute("value"));
         }
 
         [Test]
@@ -69,7 +69,9 @@ namespace IrvinSeleniumTests
             Actions a = new Actions(driver);
             a.MoveToElement(driver.FindElement(By.CssSelector("a.dropdown-toggle"))).Perform();
             Thread.Sleep(5000);
-            driver.FindElement(By.XPath("//ul[@class='dropdown-menu']/li[1]/a")).Click();
+            driver.FindElement(By.LinkText("Contact")).Click();
+
+            ////ul[@class='dropdown-menu']/li[1]/a
 
         }
 
