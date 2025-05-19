@@ -38,7 +38,8 @@ namespace IrvinSeleniumTests
             driver.FindElement(By.Name("enter-name")).SendKeys(name);
             driver.FindElement(By.CssSelector("input[value='Confirm']")).Click();
             String AlertText = driver.SwitchTo().Alert().Text;
-            driver.SwitchTo().Alert().Accept();
+            TestContext.Progress.Write(AlertText);
+            driver.SwitchTo().Alert().Dismiss();
 
             StringAssert.Contains(name, AlertText);
         }
@@ -47,13 +48,13 @@ namespace IrvinSeleniumTests
         public void AutoSuggestion()
         {
             IWebElement inputValue = driver.FindElement(By.Id("autocomplete"));
-            inputValue.SendKeys("LO");
+            inputValue.SendKeys("St. Pierre");
             Thread.Sleep(4000);
             IList<IWebElement> Options = driver.FindElements(By.CssSelector("li[class='ui-menu-item']"));
 
             foreach (IWebElement option in Options)
             {
-                if (option.Text.Equals("Solomon Islands"))
+                if (option.Text.Equals("St. Pierre and Miquelon"))
                 {
                     option.Click();
                     
@@ -69,7 +70,7 @@ namespace IrvinSeleniumTests
             Actions a = new Actions(driver);
             a.MoveToElement(driver.FindElement(By.CssSelector("a.dropdown-toggle"))).Perform();
             Thread.Sleep(5000);
-            driver.FindElement(By.LinkText("Contact")).Click();
+            driver.FindElement(By.PartialLinkText("Part")).Click();
 
             ////ul[@class='dropdown-menu']/li[1]/a
 
@@ -81,14 +82,14 @@ namespace IrvinSeleniumTests
         {
             driver.Url = "https://rahulshettyacademy.com/AutomationPractice/";
 
-            //scroll
             IWebElement frameScroll = driver.FindElement(By.Id("courses-iframe"));
+            //scroll
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             js.ExecuteScript("arguments[0].scrollIntoView(true);", frameScroll);
 
             //id, name and index
             driver.SwitchTo().Frame("courses-iframe");
-            driver.FindElement(By.PartialLinkText("All Access")).Click();
+            driver.FindElement(By.PartialLinkText("Support")).Click();
             Thread.Sleep(5000);
             TestContext.Progress.WriteLine( driver.FindElement(By.CssSelector("h1")).Text);
         }
@@ -105,12 +106,21 @@ namespace IrvinSeleniumTests
 
             //id, name and index
             driver.SwitchTo().Frame("courses-iframe");
-            driver.FindElement(By.PartialLinkText("All Access")).Click();
+
+            driver.FindElement(By.PartialLinkText("Courses")).Click();
+
             Thread.Sleep(5000);
             TestContext.Progress.WriteLine(driver.FindElement(By.CssSelector("h1")).Text);
+
             driver.SwitchTo().DefaultContent();
+
+            IWebElement pageHeader =driver.FindElement(By.CssSelector("h1"));
             Thread.Sleep(5000);
+
+            js.ExecuteScript("arguments[0].scrollIntoView(true)", pageHeader);
+
             TestContext.Progress.WriteLine(driver.FindElement(By.CssSelector("h1")).Text);
+
         }
     }
 }

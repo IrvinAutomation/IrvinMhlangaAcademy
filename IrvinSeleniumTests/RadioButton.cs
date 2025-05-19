@@ -46,7 +46,7 @@ namespace IrvinSeleniumTests
            Boolean result = driver.FindElement(By.XPath("//input[@value='user']")).Selected;
            IWebElement dropDown = driver.FindElement(By.XPath("//select[@class='form-control']"));
             SelectElement s = new SelectElement(dropDown);
-            //s.SelectByIndex(0);
+            s.SelectByIndex(1);
             s.SelectByText("Consultant");
             s.SelectByValue("stud");
 

@@ -26,9 +26,9 @@ namespace IrvinSeleniumTests
             //new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
             //driver = new FirefoxDriver();
             //driver = new EdgeDriver();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver = new ChromeDriver();
             driver.Url = "https://rahulshettyacademy.com/loginpagePractise/";
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Manage().Window.Maximize();
         }
 
@@ -39,7 +39,9 @@ namespace IrvinSeleniumTests
             userName.SendKeys("rahulshettyacademy");
             IWebElement password = driver.FindElement(By.Name("password"));
             password.SendKeys("12345");
-            driver.FindElement(By.XPath("//input[@id='terms']")).Click();
+            //ccs selector for the below locator .text-info span:nth-child(1) input
+            //xpath of the below locator //div[@class='form-group'][5]/label/span/input
+            driver.FindElement(By.CssSelector(".text-info span:nth-child(1) input")).Click();
             driver.FindElement(By.Id("signInBtn")).Click();
 
             //get the error text message
@@ -49,16 +51,13 @@ namespace IrvinSeleniumTests
            String alert = driver.FindElement(By.XPath("//div[@class='alert alert-danger col-md-12']")).Text;
            TestContext.Progress.WriteLine(alert);
 
+            String UrlName = "https://rahulshettyacademy.com/documents-request";
+
             IWebElement LinkTex = driver.FindElement(By.LinkText("Free Access to InterviewQues/ResumeAssistance/Material"));
             String hrefLink = LinkTex.GetAttribute("href");
 
-           
-            Assert.That(hrefLink, Is.EqualTo("https://rahulshettyacademy.com/documents-request"));
+            Assert.That(hrefLink, Is.EqualTo(UrlName));
             
-            
-    
-            
-
 
         }
 

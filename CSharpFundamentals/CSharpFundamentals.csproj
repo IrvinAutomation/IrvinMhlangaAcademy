@@ -10,19 +10,23 @@
   <ItemGroup>
     <Compile Remove="AdditionCalculator.cs" />
     <Compile Remove="Arrays.cs" />
+    <Compile Remove="ExceptionHandling.cs" />
     <Compile Remove="Program.cs" />
     <Compile Remove="Program2.cs" />
     <Compile Remove="Program3.cs" />
     <Compile Remove="Program4.cs" />
+    <Compile Remove="TwoDimensionalArray.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="AdditionCalculator.cs" />
     <None Include="Arrays.cs" />
+    <None Include="ExceptionHandling.cs" />
     <None Include="Program.cs" />
     <None Include="Program2.cs" />
     <None Include="Program3.cs" />
     <None Include="Program4.cs" />
+    <None Include="TwoDimensionalArray.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpFundamentals", "CShar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrvinSeleniumTests", "IrvinSeleniumTests\IrvinSeleniumTests.csproj", "{E73906B0-E99E-4D1E-AAF0-B9710DB2CFB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpSeleniumFrameWork", "CSharpSeleniumFrameWork\CSharpSeleniumFrameWork.csproj", "{3A35C799-E353-46CF-9F4F-D2B5BD606E5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E73906B0-E99E-4D1E-AAF0-B9710DB2CFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E73906B0-E99E-4D1E-AAF0-B9710DB2CFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E73906B0-E99E-4D1E-AAF0-B9710DB2CFB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A35C799-E353-46CF-9F4F-D2B5BD606E5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A35C799-E353-46CF-9F4F-D2B5BD606E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A35C799-E353-46CF-9F4F-D2B5BD606E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A35C799-E353-46CF-9F4F-D2B5BD606E5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

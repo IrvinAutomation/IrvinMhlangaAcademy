@@ -12,7 +12,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace IrvinSeleniumTests
 {
-    public class FirstSelelium
+    public class FirstSelenium
     {
         IWebDriver driver;
 

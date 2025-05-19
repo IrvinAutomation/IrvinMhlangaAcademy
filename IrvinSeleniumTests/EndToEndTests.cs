@@ -31,17 +31,17 @@ namespace IrvinSeleniumTests
         [Test]
         public void getListOfProducts()
         {
-            String[] products = { "iphone X", "Samsung Note 8" , "Nokia Edge", "Blackberry" };
+            String[] Expectedproducts = { "iphone X", "Samsung Note 8", "Blackberry" };
 
             driver.FindElement(By.Name("username")).SendKeys("rahulshettyacademy");
             driver.FindElement(By.Name("password")).SendKeys("learning");
 
-            IList<IWebElement> radioButton = driver.FindElements(By.CssSelector("input[type='radio']"));
-            foreach (IWebElement radioButtonElement in radioButton)
+            IList<IWebElement> radioButtons = driver.FindElements(By.CssSelector("input[type='radio']"));
+            foreach (IWebElement radioButtonElements in radioButtons)
             {
-                if (radioButtonElement.GetAttribute("value").Equals("user"))
+                if (radioButtonElements.GetAttribute("value").Equals("user"))
                 {
-                    radioButtonElement.Click();
+                    radioButtonElements.Click();
                 }
             }
 
@@ -50,22 +50,25 @@ namespace IrvinSeleniumTests
             driver.FindElement(By.Id("okayBtn")).Click();
 
             Boolean result = driver.FindElement(By.XPath("//input[@value='user']")).Selected;
+
             IWebElement dropDown = driver.FindElement(By.XPath("//select[@class='form-control']"));
+
             SelectElement s = new SelectElement(dropDown);
-            //s.SelectByIndex(0);
             s.SelectByText("Consultant");
             s.SelectByValue("stud");
+
             driver.FindElement(By.Id("signInBtn")).Click();
 
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector("button.btn")));
 
-            IList<IWebElement> prod = driver.FindElements(By.TagName("app-card"));
+            IList<IWebElement> products = driver.FindElements(By.TagName("app-card"));
 
-            foreach (IWebElement prodItem in prod)
+            foreach (IWebElement prodItem in products)
             {
 
-                if (products.Contains(prodItem.FindElement(By.CssSelector(".card-title a")).Text))
+                if (Expectedproducts.Contains(prodItem.FindElement(By.CssSelector(".card-title a")).Text))
                 {
+                    //click on add cart
                     prodItem.FindElement(By.CssSelector(".card-footer button")).Click();
                 }
 
