@@ -48,13 +48,13 @@ namespace IrvinSeleniumTests
         public void AutoSuggestion()
         {
             IWebElement inputValue = driver.FindElement(By.Id("autocomplete"));
-            inputValue.SendKeys("St. Pierre");
+            inputValue.SendKeys("MO");
             Thread.Sleep(4000);
             IList<IWebElement> Options = driver.FindElements(By.CssSelector("li[class='ui-menu-item']"));
 
             foreach (IWebElement option in Options)
             {
-                if (option.Text.Equals("St. Pierre and Miquelon"))
+                if (option.Text.Equals("Moldova, Republic of"))
                 {
                     option.Click();
                     
