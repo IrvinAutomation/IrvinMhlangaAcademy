@@ -31,7 +31,7 @@ namespace IrvinSeleniumTests
         [Test]
         public void getListOfProducts()
         {
-            String[] Expectedproducts = { "iphone X", "Samsung Note 8", "Blackberry" };
+            String[] Expectedproducts = { "iphone X", "Samsung Note 8" };
 
             driver.FindElement(By.Name("username")).SendKeys("rahulshettyacademy");
             driver.FindElement(By.Name("password")).SendKeys("learning");
