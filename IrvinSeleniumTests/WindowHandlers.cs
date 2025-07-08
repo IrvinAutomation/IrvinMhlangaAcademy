@@ -44,27 +44,36 @@ namespace IrvinSeleniumTests
         public void SwitchBackToParentWindow()
         {
             driver.Url = "https://rahulshettyacademy.com/loginpagePractise/";
-            String email = "mentor@eahulshettyacademy.com";
+            String email = "mentor@rahulshettyacademy.com";
             String parentwinID = driver.CurrentWindowHandle;
 
             driver.FindElement(By.CssSelector(".blinkingText")).Click();
 
-            String ChildWindowName = driver.WindowHandles[1];
-       
-            driver.SwitchTo().Window(ChildWindowName);
-            TestContext.Progress.WriteLine(driver.FindElement(By.CssSelector(".red")).Text);
+            String parentWindow = driver.CurrentWindowHandle.ToString();
 
-            String text = driver.FindElement(By.CssSelector(".red")).Text;
+            Assert.That(driver.WindowHandles.Count, Is.EqualTo(2));
 
-            String[] spilttedText = text.Split("at");
+            String childWindow = driver.WindowHandles[1];
+
+            driver.SwitchTo().Window(childWindow);
+
+           String text =  driver.FindElement(By.CssSelector(".red")).Text;
+
+            String[] splitText = text.Split("at");
+
+            String[] trimmedText = splitText[1].Trim().Split(" ");
+
+            TestContext.Progress.WriteLine(trimmedText[0]);
+
+            Assert.That(trimmedText[0], Is.EqualTo(email));
+
+            driver.SwitchTo().Window(parentWindow);
+
+            driver.FindElement(By.Id("username")).SendKeys(trimmedText[0]);
 
 
-           String[] timeSplit = spilttedText[1].Trim().Split(" ");
 
-            Thread.Sleep(3000);
-            driver.SwitchTo().Window(parentwinID);
-
-            driver.FindElement(By.Id("username")).SendKeys(timeSplit[0]);
+            
 
         }
 

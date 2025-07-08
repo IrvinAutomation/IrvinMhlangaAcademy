@@ -1,6 +1,7 @@
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using CSharpSeleniumFrameWork.Utilities;
+using System.Collections;
 namespace CSharpSeleniumFrameWork
 {
     public class Tests : Base
@@ -28,6 +29,26 @@ namespace CSharpSeleniumFrameWork
 
 
             Assert.That(hrefLink, Is.EqualTo("https://rahulshettyacademy.com/documents-request"));
+
+        }
+
+        [Test]
+        public void SwitchingToNewWindowOrANewTab()
+        {
+
+            driver.SwitchTo().NewWindow(WindowType.Tab); // opens on a new tab
+
+            //driver.SwitchTo().NewWindow(WindowType.Window);  //opens a new window
+
+            driver.Url = "https://rahulshettyacademy.com/documents-request";
+
+            ArrayList list = new ArrayList(driver.WindowHandles);
+
+            TestContext.Progress.WriteLine(list[0]);
+            TestContext.Progress.WriteLine(list[1]);
+
+
+
 
         }
     }
