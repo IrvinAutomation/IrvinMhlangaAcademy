@@ -10,8 +10,8 @@ namespace CSharpFundamentals
     {
         static void Main(string[] args)
         {
-            int index = 1;
-            while (index <= 6)
+            int index = 20;
+            while (index < 30)
             {
                 Console.WriteLine(index);
                 index++;

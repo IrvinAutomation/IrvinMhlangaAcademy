@@ -66,7 +66,7 @@ namespace CSharpSeleniumFrameWork.Utilities
         [TearDown]
         public void StopBrowser()
         {
-            //driver.Close();
+            driver.Close();
         }
     }
 }

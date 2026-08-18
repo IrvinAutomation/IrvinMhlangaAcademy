@@ -11,7 +11,9 @@
     <Compile Remove="AdditionCalculator.cs" />
     <Compile Remove="Arrays.cs" />
     <Compile Remove="Book.cs" />
+    <Compile Remove="DoWhileLoop.cs" />
     <Compile Remove="ExceptionHandling.cs" />
+    <Compile Remove="GuessGame.cs" />
     <Compile Remove="Program.cs" />
     <Compile Remove="Program2.cs" />
     <Compile Remove="Program3.cs" />
@@ -25,7 +27,9 @@
     <None Include="AdditionCalculator.cs" />
     <None Include="Arrays.cs" />
     <None Include="Book.cs" />
+    <None Include="DoWhileLoop.cs" />
     <None Include="ExceptionHandling.cs" />
+    <None Include="GuessGame.cs" />
     <None Include="Program.cs" />
     <None Include="Program2.cs" />
     <None Include="Program3.cs" />

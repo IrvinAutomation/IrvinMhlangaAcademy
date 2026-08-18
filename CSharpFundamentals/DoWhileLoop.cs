@@ -8,16 +8,17 @@ namespace CSharpFundamentals
 {
     public class DoWhileLoop
     {
+
         static void Main(string[] args)
         {
             int index = 6;
-
             do
             {
                 Console.WriteLine(index);
                 index++;
 
-            } while (index <= 1);
+            }
+            while (index <= 10);
         }
     }
 }
