@@ -20,7 +20,7 @@ namespace CSharpFundamentals
             {
                 if (guessCount < guessLimit)
                 {
-                    Console.Write("Enter Secret Word: ");
+                    Console.Write("Please Enter Secret Word: ");
                     guessWord = Console.ReadLine();
                     guessCount++;
                 }
@@ -32,15 +32,15 @@ namespace CSharpFundamentals
             if (outOfGuesses)
             {
                 Console.WriteLine("You Lose: ");
-            }else
+            }
+            else
             {
                 Console.WriteLine("You Win: ");
             }
-
-
-
-
         }
     }
 }
+
+
+
 
