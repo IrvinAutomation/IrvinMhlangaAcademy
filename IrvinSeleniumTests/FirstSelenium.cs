@@ -19,6 +19,7 @@ namespace IrvinSeleniumTests
         [SetUp]
         public void startBrowser()
         {
+            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig()); 
 
             //new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
             //new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
@@ -32,9 +33,9 @@ namespace IrvinSeleniumTests
 
         [Test]
         public void pageTitleTest()
-        { 
-            TestContext.Progress.WriteLine("The page Title is : "+driver.PageSource);
-           TestContext.Progress.WriteLine("The URL of the page is :" +driver.Url);
+        {
+            TestContext.Progress.WriteLine($"The PAGE Title is : {driver.Title}");
+            TestContext.Progress.WriteLine("The URL of the page is :" +driver.Url);
         }
 
         [TearDown]

@@ -30,27 +30,31 @@ namespace IrvinSeleniumTests
         [Test]
         public void RadioButtonTests()
         {
-            IList<IWebElement> radioButton = driver.FindElements(By.CssSelector("input[type='radio']"));
-            foreach (IWebElement radioButtonElement in radioButton)
-            {
-                if (radioButtonElement.GetAttribute("value").Equals("user"))
-                {
-                    radioButtonElement.Click();
-                }
-                
-            }
-            WebDriverWait wait = new WebDriverWait(driver,TimeSpan.FromSeconds(5));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(driver.FindElement(By.Id("okayBtn"))));
-            driver.FindElement(By.Id("okayBtn")).Click();
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            IList<IWebElement> radio = driver.FindElements(By.XPath("//input[@type = 'radio']"));
 
-           Boolean result = driver.FindElement(By.XPath("//input[@value='user']")).Selected;
-           IWebElement dropDown = driver.FindElement(By.XPath("//select[@class='form-control']"));
+            foreach(IWebElement radioButton in  radio)
+            {
+                if(radioButton.GetAttribute("value").Equals("user"))
+                {
+                    radioButton.Click();
+                }
+            }
+
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("okayBtn"))).Click();
+
+            IWebElement dropDown = driver.FindElement(By.XPath("//select[@class='form-control']"));
+
             SelectElement s = new SelectElement(dropDown);
             s.SelectByIndex(1);
-            s.SelectByText("Consultant");
-            s.SelectByValue("stud");
 
-            Assert.That(result, Is.True);   
+            Boolean isSelected = driver.FindElement(By.CssSelector("input[value='user']")).Selected;
+
+            TestContext.Progress.WriteLine(isSelected);
+
+            Assert.That(isSelected, Is.True);
+            
+
         }
     }
 }

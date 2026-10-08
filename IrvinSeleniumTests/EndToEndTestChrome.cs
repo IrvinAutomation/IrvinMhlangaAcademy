@@ -32,11 +32,11 @@ namespace IrvinSeleniumTests
         [Test]
         public void getListOfProducts()
         {
-            String[] Expectedproducts = { "iphone X", "Nokia Edge", "Blackberry" };
-            String phoneT = "₹. 215000";
+            String[] Expectedproducts = { "iphone X", "Nokia Edge", "Blackberry", "Samsung Note 8" };
+            String phoneT = "₹. 300000";
 
             driver.FindElement(By.Name("username")).SendKeys("rahulshettyacademy");
-            driver.FindElement(By.Name("password")).SendKeys("learning");
+            driver.FindElement(By.Name("password")).SendKeys("Learning@830$3mK2");
             
             IList<IWebElement> radioButtons = driver.FindElements(By.CssSelector("input[name='radio']"));
             foreach (IWebElement radioButtonElements in radioButtons)
@@ -71,7 +71,7 @@ namespace IrvinSeleniumTests
                 if (Expectedproducts.Contains(prodItem.FindElement(By.CssSelector(".card-title a")).Text))
                 {
                     //click on add cart
-                    prodItem.FindElement(By.CssSelector(".card-footer button")).Click();
+                    prodItem.FindElement(By.CssSelector(".btn-info")).Click();
                 }
 
                 TestContext.Progress.WriteLine(prodItem.FindElement(By.CssSelector(".card-title a")).Text);
@@ -81,13 +81,13 @@ namespace IrvinSeleniumTests
 
             Thread.Sleep(10000);
 
-            IWebElement total = driver.FindElement(By.CssSelector(".text-right h3 strong"));
+            String total = driver.FindElement(By.CssSelector(".text-right h3 strong")).Text;
 
-            String PhoneTotals = total.Text;
+            //String PhoneTotals = total.Text;
 
-            TestContext.Progress.WriteLine(PhoneTotals);
+            TestContext.Progress.WriteLine($"The Phones total is: {total}");
 
-            Assert.That(PhoneTotals, Is.EqualTo(phoneT));
+            Assert.That(total, Is.EqualTo(phoneT));
         }
 
     }

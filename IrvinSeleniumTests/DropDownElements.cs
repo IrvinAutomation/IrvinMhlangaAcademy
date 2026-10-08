@@ -19,7 +19,8 @@ namespace IrvinSeleniumTests
         {
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
              driver = new ChromeDriver();
- 
+            
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Url = "https://rahulshettyacademy.com/loginpagePractise/";
             driver.Manage().Window.Maximize();
 
@@ -28,12 +29,14 @@ namespace IrvinSeleniumTests
         [Test]
         public void DropDownSelect()
         {
-            IWebElement drpDown = driver.FindElement(By.XPath("//select[@class='form-control']"));
-            SelectElement s = new SelectElement(drpDown);
-            //s.SelectByIndex(0);
+            IWebElement dropdown = driver.FindElement(By.CssSelector(".form-group select"));
+
+            SelectElement s = new SelectElement(dropdown);
+
+            //s.SelectByIndex(2);
+            //s.SelectByValue("teach");
             s.SelectByText("Consultant");
-            s.SelectByIndex(1);
-            //s.SelectByValue("stud");
         }
+
     }
 }
