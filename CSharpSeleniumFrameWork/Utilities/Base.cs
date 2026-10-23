@@ -23,9 +23,12 @@ namespace CSharpSeleniumFrameWork.Utilities
             //Implicit wait is applied globaly
             //explicit wait is applied to a specific element
 
-            String browserName = ConfigurationManager.AppSettings["browser"];
+            //Configuration
 
-            InitBrowser(browserName);
+
+            String BrowserConfig = ConfigurationManager.AppSettings["browserName"];
+
+            InitBrowser(BrowserConfig);
 
             //new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
             //new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
@@ -33,8 +36,10 @@ namespace CSharpSeleniumFrameWork.Utilities
             //driver = new FirefoxDriver();
             //driver = new EdgeDriver();
             //driver = new ChromeDriver();
-            driver.Url = "https://rahulshettyacademy.com/loginpagePractise/";
+
             driver.Manage().Window.Maximize();
+            driver.Url = "https://rahulshettyacademy.com/loginpagePractise/";
+            ;
 
         }
 
@@ -49,7 +54,7 @@ namespace CSharpSeleniumFrameWork.Utilities
 
                 case "Chrome":
                     new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-                    driver = new ChromeDriver();
+                     driver = new ChromeDriver();
                     break;
 
                 case "Edge":
@@ -63,10 +68,31 @@ namespace CSharpSeleniumFrameWork.Utilities
             }
         }
 
-        [TearDown]
-        public void StopBrowser()
+        public IWebDriver getDriver()
         {
-            driver.Close();
+            return driver;
         }
+
+        [TearDown]
+        public void quitBrowser()
+        {
+            driver.Quit();
+        }
+
+        public void captureScreenShot()
+        {
+            ITakesScreenshot ts = (ITakesScreenshot)driver;
+            Screenshot screenshot = ts.GetScreenshot();
+
+            string path = Path.Combine(Directory.GetCurrentDirectory(),
+            $"screenshot_{DateTime.Now:yyMMdd_HHmmss}.png");
+
+
+            //string path = Path.Combine(Directory.GetCurrentDirectory(),
+            //$"screenshot_{DateTime.Now:yyyyMMdd_HHmmss}.png");
+
+            screenshot.SaveAsFile(path);
+        }
+      
     }
 }

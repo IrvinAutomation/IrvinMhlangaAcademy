@@ -2,7 +2,9 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using CSharpSeleniumFrameWork.Utilities;
 using System.Collections;
-namespace CSharpSeleniumFrameWork
+
+
+namespace CSharpSeleniumFrameWork.Tests
 {
     public class Tests : Base
     {
@@ -21,11 +23,11 @@ namespace CSharpSeleniumFrameWork
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(8));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.TextToBePresentInElementValue(driver.FindElement(By.Id("signInBtn")), "Sign In"));
 
-            String alert = driver.FindElement(By.XPath("//div[@class='alert alert-danger col-md-12']")).Text;
+            string alert = driver.FindElement(By.XPath("//div[@class='alert alert-danger col-md-12']")).Text;
             TestContext.Progress.WriteLine(alert);
 
             IWebElement LinkTex = driver.FindElement(By.LinkText("Free Access to InterviewQues/ResumeAssistance/Material"));
-            String hrefLink = LinkTex.GetAttribute("href");
+            string hrefLink = LinkTex.GetAttribute("href");
 
 
             Assert.That(hrefLink, Is.EqualTo("https://rahulshettyacademy.com/documents-request"));

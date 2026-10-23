@@ -30,7 +30,7 @@ namespace IrvinSeleniumTests
         }
 
         [Test]
-        public void getListOfProducts()
+        public void getListOfProductsIntoACart()
         {
             String[] Expectedproducts = { "iphone X", "Nokia Edge", "Blackberry", "Samsung Note 8" };
             String phoneT = "₹. 300000";
@@ -47,9 +47,9 @@ namespace IrvinSeleniumTests
                 }
             }
             
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(driver.FindElement(By.Id("okayBtn"))));
-            driver.FindElement(By.Id("okayBtn")).Click();
+           WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+           IWebElement okayButton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(driver.FindElement(By.Id("okayBtn"))));
+           okayButton.Click();
             
             Boolean result = driver.FindElement(By.XPath("//input[@value='user']")).Selected;
             
@@ -58,6 +58,7 @@ namespace IrvinSeleniumTests
             SelectElement s = new SelectElement(dropDown);
             s.SelectByText("Consultant");
             s.SelectByValue("stud");
+            s.SelectByIndex(0);
 
             driver.FindElement(By.Id("signInBtn")).Click();
          
@@ -84,6 +85,9 @@ namespace IrvinSeleniumTests
             String total = driver.FindElement(By.CssSelector(".text-right h3 strong")).Text;
 
             //String PhoneTotals = total.Text;
+            Thread.Sleep(5000);
+
+           
 
             TestContext.Progress.WriteLine($"The Phones total is: {total}");
 

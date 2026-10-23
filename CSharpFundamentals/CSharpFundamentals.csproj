@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Compile Remove="AdditionCalculator.cs" />
+    <Compile Remove="Arrays.cs" />
     <Compile Remove="Book.cs" />
     <Compile Remove="DoWhileLoop.cs" />
     <Compile Remove="ExceptionHandling.cs" />
@@ -24,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Arrays.cs" />
     <None Include="Book.cs" />
     <None Include="DoWhileLoop.cs" />
     <None Include="ExceptionHandling.cs" />

@@ -1,0 +1,90 @@
+﻿using CSharpSeleniumFrameWork.Utilities;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WebDriverManager.DriverConfigs.Impl;
+
+namespace CSharpSeleniumFrameWork.Tests
+{
+    public class EndToEndTestChrome : Base
+    {
+
+        [Test]
+        public void getListOfProductsIntoACart()
+        {
+            String[] Expectedproducts = { "iphone X", "Nokia Edge", "Blackberry", "Samsung Note 8" };
+            String phoneT = "₹. 300000";
+
+            driver.FindElement(By.Name("username")).SendKeys("rahulshettyacademy");
+            driver.FindElement(By.Name("password")).SendKeys("Learning@830$3mK2");
+            
+            IList<IWebElement> radioButtons = driver.FindElements(By.CssSelector("input[name='radio']"));
+            foreach (IWebElement radioButtonElements in radioButtons)
+            {
+                if (radioButtonElements.GetAttribute("value").Equals("user"))
+                {
+                    radioButtonElements.Click();
+                }
+            }
+            
+           WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+           IWebElement okayButton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(driver.FindElement(By.Id("okayBtn"))));
+           okayButton.Click();
+            
+            Boolean result = driver.FindElement(By.XPath("//input[@value='user']")).Selected;
+            
+            IWebElement dropDown = driver.FindElement(By.XPath("//select[@class='form-control']"));
+
+            SelectElement s = new SelectElement(dropDown);
+            s.SelectByText("Consultant");
+            s.SelectByValue("stud");
+            s.SelectByIndex(0);
+
+            driver.FindElement(By.Id("signInBtn")).Click();
+         
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector("button.btn")));
+
+            IList<IWebElement> products = driver.FindElements(By.TagName("app-card"));
+
+            foreach (IWebElement prodItem in products)
+            {
+
+                if (Expectedproducts.Contains(prodItem.FindElement(By.CssSelector(".card-title a")).Text))
+                {
+                    //click on add cart
+                    prodItem.FindElement(By.CssSelector(".btn-info")).Click();
+                }
+
+                TestContext.Progress.WriteLine(prodItem.FindElement(By.CssSelector(".card-title a")).Text);
+
+            }
+            driver.FindElement(By.PartialLinkText("Checkout")).Click();
+
+            Thread.Sleep(10000);
+
+            String total = driver.FindElement(By.CssSelector(".text-right h3 strong")).Text;
+
+            //String PhoneTotals = total.Text;
+            Thread.Sleep(5000);
+
+           
+
+            TestContext.Progress.WriteLine($"The Phones total is: {total}");
+
+            IWebElement checkOut = driver.FindElement(By.CssSelector(".btn-success"));
+
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+
+            js.ExecuteScript("argurements[0].scrollIntoView(true);", checkOut);
+
+            Assert.That(total, Is.EqualTo(phoneT));
+        }
+
+    }
+}

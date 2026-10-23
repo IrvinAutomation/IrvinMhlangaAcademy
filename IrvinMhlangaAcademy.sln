@@ -9,6 +9,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrvinSeleniumTests", "Irvin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpSeleniumFrameWork", "CSharpSeleniumFrameWork\CSharpSeleniumFrameWork.csproj", "{3A35C799-E353-46CF-9F4F-D2B5BD606E5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrvinPlaywright", "IrvinPlaywright\IrvinPlaywright.csproj", "{9FC3F5EE-249E-48FA-AF8E-FB5D2E66D490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASEC.IdentityPlatform.Automation", "ASEC.IdentityPlatform.Automation\ASEC.IdentityPlatform.Automation.csproj", "{0307D026-FEF1-4879-9A91-9E4AFF2E0E16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASEC_Identity_Platform_Web_Automation", "ASEC_Identity_Platform_Web_Automation\ASEC_Identity_Platform_Web_Automation.csproj", "{317DA2F9-44F5-4190-9C09-BA4FF265B759}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASEC_Identity_Platform_API_Tests", "ASEC_Identity_Platform_API_Tests\ASEC_Identity_Platform_API_Tests.csproj", "{1729152F-BDF4-41D1-AC91-673E527793D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASEC_Identity_Platform_Web_Tests", "ASEC_Identity_Platform_Web_Tests\ASEC_Identity_Platform_Web_Tests.csproj", "{4DEDFF1F-1A61-48F3-875F-2B625AB1F56E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +37,26 @@ Global
 		{3A35C799-E353-46CF-9F4F-D2B5BD606E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A35C799-E353-46CF-9F4F-D2B5BD606E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A35C799-E353-46CF-9F4F-D2B5BD606E5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FC3F5EE-249E-48FA-AF8E-FB5D2E66D490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FC3F5EE-249E-48FA-AF8E-FB5D2E66D490}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FC3F5EE-249E-48FA-AF8E-FB5D2E66D490}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FC3F5EE-249E-48FA-AF8E-FB5D2E66D490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0307D026-FEF1-4879-9A91-9E4AFF2E0E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0307D026-FEF1-4879-9A91-9E4AFF2E0E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0307D026-FEF1-4879-9A91-9E4AFF2E0E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0307D026-FEF1-4879-9A91-9E4AFF2E0E16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{317DA2F9-44F5-4190-9C09-BA4FF265B759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317DA2F9-44F5-4190-9C09-BA4FF265B759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317DA2F9-44F5-4190-9C09-BA4FF265B759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317DA2F9-44F5-4190-9C09-BA4FF265B759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1729152F-BDF4-41D1-AC91-673E527793D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1729152F-BDF4-41D1-AC91-673E527793D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1729152F-BDF4-41D1-AC91-673E527793D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1729152F-BDF4-41D1-AC91-673E527793D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DEDFF1F-1A61-48F3-875F-2B625AB1F56E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DEDFF1F-1A61-48F3-875F-2B625AB1F56E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DEDFF1F-1A61-48F3-875F-2B625AB1F56E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DEDFF1F-1A61-48F3-875F-2B625AB1F56E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
