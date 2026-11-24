@@ -1,0 +1,8 @@
+Step1. Download NodeJS then check if it is properly installed on the environment variable
+node --version
+npm --version
+
+Step2. Download Json-server on the command line
+nom install -g json-server
+
+
