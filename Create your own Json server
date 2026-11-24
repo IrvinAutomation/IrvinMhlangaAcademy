@@ -5,4 +5,9 @@ npm --version
 Step2. Download Json-server on the command line
 nom install -g json-server
 
+Step3. Create a student or employee file on the c drive and save the file as a json file
+
+Step4. Now start the json by goin to where the student file is and type
+C:\Json>json-server students.json
+
 
